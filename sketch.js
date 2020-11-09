@@ -27,21 +27,29 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(1000, 1000);
+  createCanvas(1020, 1000);
   pixelDensity(1);
-  
-  image (image1, 0, 0, 230, 250);
-  image (image2, 250, 0, 230, 250);
-  image (image3, 500, 0, 230, 250);
-  image (image4, 750, 0, 230, 250);
-  image (image5, 0, 350, 230, 250);
-  image (image6, 250, 350, 230, 250);
-  image (image7, 500, 350, 230, 250);
-  image (image8, 750, 350, 230, 250);
-  image (image9, 0, 700, 230, 250);
-  image (image10, 250, 700, 230, 250);
-  image (image11, 500, 700, 230, 250);
-  image (image12, 750, 700, 230, 250);
+  background(200, 200, 250)
+    
+  image (image1, 20, 0, 230, 250);
+  image (image2, 270, 50, 230, 250);
+  image (image3, 520, 0, 230, 250);
+  image (image4, 770, 50, 230, 250);
+  image (image5, 20, 350, 230, 250);
+  image (image6, 270, 400, 230, 250);
+  image (image7, 520, 350, 230, 250);
+  image (image8, 770, 400, 230, 250);
+  image (image9, 20, 700, 230, 250);
+  image (image10, 270, 750, 230, 250);
+  image (image11, 520, 700, 230, 250);
+  image (image12, 770, 750, 230, 250);
+    
+  textSize(15)
+  textAlign(CENTER)
+  text("Drag mouse from top left to bottom right.", 385, 30)
+
+  line(270, 30, 50, 10)
+  triangle(55, 5, 50, 14, 30, 7)
   
 
 }
@@ -50,7 +58,7 @@ function setup() {
 function redTint () {
     loadPixels();
       for (let y = 0; y < mouseY; y++) {
-        for (let x = 0; x < mouseX; x++) {
+        for (let x = 20; x < mouseX; x++) {
           let index = (x + y * width)*4;
         
           let r = pixels[index+0];
@@ -63,7 +71,9 @@ function redTint () {
           pixels[index+1] = g
           pixels[index+2] = b
            
-          } else {
+       } else if (b>240) {
+          continue;  
+       } else {
           
           pixels[index+0] = 200
           pixels[index+1] = 150
@@ -76,10 +86,10 @@ function redTint () {
 
 
 
-function something() {
+function fade() {
   loadPixels()
     for (let y = 0; y < mouseY; y++) {
-        for (let x = 250; x < mouseX; x++) {
+        for (let x = 270; x < mouseX; x++) {
           let index = (x + y * width)*4;
           
           let r = pixels[index+0];
@@ -104,21 +114,28 @@ function something() {
 function greenTint () {
     loadPixels();
       for (let y = 0; y < mouseY; y++) {
-        for (let x = 500; x < mouseX; x++) {
+        for (let x = 520; x < mouseX; x++) {
           let index = (x + y * width)*4;
         
           let r = pixels[index+0];
           let g = pixels[index+1];
           let b = pixels[index+2];
           let a = pixels[index+3];   
-          
-         if (r < 200, g < 200, b > 100) {
-          pixels[index+0] = r- 250
+            
+     if (r<50, g<200, b < 250) {
+          pixels[index+0] = r-250
           pixels[index+1] = g
           pixels[index+2] = 130
-         
-         }
-}
+           
+       } else if (b>240) {
+          continue;  
+       } else {
+          
+          pixels[index+0] = 100
+          pixels[index+1] = 150
+          pixels[index+2] = 250
+        }
+      }
       }
       updatePixels();
 }
@@ -126,7 +143,7 @@ function greenTint () {
 function flowerTint () {
       loadPixels();
       for (let y = 0; y < mouseY; y++) {
-        for (let x = 750; x < mouseX; x++) {
+        for (let x = 770; x < mouseX; x++) {
          let index = (x + y * width)*4;
         
           let r = pixels[index+0];
@@ -150,16 +167,16 @@ function flowerTint () {
 }
 
 function mouseDragged() {
-  if (mouseX < 230) {
+  if (mouseX < 270) {
     redTint()
   }  
-  if (mouseX > 250 && mouseX < 480) {
-    something()
+  if (mouseX > 250 && mouseX < 500) {
+    fade()
   }
   if (mouseX > 500 && mouseX < 750) {
     greenTint()
   }
-  if (mouseX > 750) {
+  if (mouseX > 700 && mouseX < 1000) {
     flowerTint()
   }
 }
