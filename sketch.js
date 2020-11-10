@@ -48,9 +48,10 @@ function setup() {
   textAlign(CENTER)
   text("Drag mouse from top left to bottom right.", 385, 30)
 
-  line(270, 30, 50, 10)
-  triangle(55, 5, 50, 14, 30, 7)
-  
+  stroke(140, 0, 170)
+  line(270, 35, 50, 15)
+  fill(170, 0, 170)
+  triangle(55, 10, 50, 19, 30, 12)
 
 }
 
@@ -67,17 +68,17 @@ function redTint () {
           let a = pixels[index+3];   
           
          if (r<200, g<100, b < 200) {
-          pixels[index+0] = r-100
-          pixels[index+1] = g
-          pixels[index+2] = b
+          pixels[index+0] = r
+          pixels[index+1] = 0
+          pixels[index+2] = 0
            
        } else if (b>240) {
           continue;  
        } else {
           
-          pixels[index+0] = 200
-          pixels[index+1] = 150
-          pixels[index+2] = 200
+          pixels[index+0] = 255
+          pixels[index+1] = 250
+          pixels[index+2] = b
         }
       }
       }
@@ -105,6 +106,7 @@ function fade() {
           pixels[index+0] = 100
           pixels[index+1] = 100
           pixels[index+2] = 100
+          pixels[index+3] = 255
           }
         }
     }
@@ -151,9 +153,9 @@ function flowerTint () {
           let b = pixels[index+2];
           let a = pixels[index+3];   
           
-         if (r > 200, b > 100) {
+         if (r > 150, b > 100) {
           pixels[index+0] = r
-          // pixels[index+1] = g
+          pixels[index+1] = g
           pixels[index+2] = b
          
          }else if (g > 1) {
