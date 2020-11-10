@@ -31,17 +31,17 @@ function setup() {
   pixelDensity(1);
   background(200, 200, 250)
     
-  image (image1, 20, 0, 230, 250);
+  image (image1, 20, 10, 230, 210);
   image (image2, 270, 50, 230, 250);
-  image (image3, 520, 0, 230, 250);
+  image (image3, 520, 10, 230, 210);
   image (image4, 770, 50, 230, 250);
-  image (image5, 20, 350, 230, 250);
+  image (image5, 20, 360, 230, 210);
   image (image6, 270, 400, 230, 250);
-  image (image7, 520, 350, 230, 250);
+  image (image7, 520, 360, 230, 210);
   image (image8, 770, 400, 230, 250);
-  image (image9, 20, 700, 230, 250);
+  image (image9, 20, 710, 230, 210);
   image (image10, 270, 750, 230, 250);
-  image (image11, 520, 700, 230, 250);
+  image (image11, 520, 710, 230, 210);
   image (image12, 770, 750, 230, 250);
     
   textSize(15)
@@ -52,6 +52,7 @@ function setup() {
   line(270, 35, 50, 15)
   fill(170, 0, 170)
   triangle(55, 10, 50, 19, 30, 12)
+  
 
 }
 
